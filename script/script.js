@@ -6,6 +6,7 @@
         }
     }
     const API_ROOT = "http://localhost:3000/projects/";
+    let body = document.querySelector("body");
     let tbody = document.querySelector("tbody");
     let modal = document.querySelector(".modal");
     let story = document.querySelectorAll(".story");
@@ -35,6 +36,7 @@
     tbody.addEventListener('mouseup', function(event) {
         if (event.target.innerHTML === "删除") {
             modal.className = "modal show";
+            body.className = "hidden";
             id = parseInt(event.target.parentNode.parentNode.id.split('-')[1]);
         }
     })
@@ -55,14 +57,17 @@
         if (event.target.innerHTML === "确认") {
             deleteItem(id);
             modal.className = "modal";
+            body.className = "";
         }
 
         if (event.target.innerHTML === "取消") {
             modal.className = "modal";
+            body.className = "";
         }
 
         if (event.target.className === "iconfont close-icon") {
             modal.className = "modal";
+            body.className = "";
         }
     })
 

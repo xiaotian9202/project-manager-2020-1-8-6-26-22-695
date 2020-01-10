@@ -4,10 +4,13 @@
     font-family: serif, "Microsoft YaHei";
 }
 
-body,
-html {
+body {
     width: 100%;
     height: 100%;
+}
+
+.hidden {
+    overflow: hidden;
 }
 
 @font-face {
@@ -143,6 +146,8 @@ html {
 }
 
 .project thead {
+    font-size: 18px;
+    font-weight: 600;
     color: #333;
     background-color: #ebecf0;
 }
@@ -189,7 +194,7 @@ html {
 
 .modal {
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     left: 0px;
     top: 0px;
     width: 100%;
