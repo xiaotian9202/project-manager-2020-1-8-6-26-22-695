@@ -113,7 +113,7 @@
         return data.reduce((html, item) => {
             return html += '<tr id=' + item.id + '>' +
                 '<td>' + item.name + '</td>' +
-                '<td class="description">' + item.description + '</td>' +
+                '<td><p class="description">' + item.description + '</p></td>' +
                 '<td>' + item.endTime + '</td>' +
                 '<td class=' + item.status.toLowerCase() + '>' + item.status + '</td>' +
                 "<td><button class='operation'>删除</button></td>" +

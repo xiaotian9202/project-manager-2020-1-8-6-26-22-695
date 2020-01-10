@@ -142,11 +142,6 @@ html {
     padding: 20px;
 }
 
-.project tr td p {
-    padding-top: 16px;
-    padding-right: 30px;
-}
-
 .project thead {
     color: #333;
     background-color: #ebecf0;
@@ -159,7 +154,6 @@ html {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     text-align: justify;
-    padding-top: 16px;
     padding-right: 50px;
 }
 
