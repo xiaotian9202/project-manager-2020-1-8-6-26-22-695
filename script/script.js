@@ -35,7 +35,7 @@
     tbody.addEventListener('mouseup', function(event) {
         if (event.target.innerHTML === "删除") {
             modal.className = "modal show";
-            id = event.target.parentNode.parentNode.id;
+            id = parseInt(event.target.parentNode.parentNode.id.split('-')[1]);
         }
     })
 
@@ -54,6 +54,7 @@
     modal.addEventListener('mouseup', function(event) {
         if (event.target.innerHTML === "确认") {
             deleteItem(id);
+            modal.className = "modal";
         }
 
         if (event.target.innerHTML === "取消") {
@@ -69,8 +70,11 @@
         let url = API_ROOT + '/' + id;
         let options = new Options(url, "delete");
         options.success = function() {
-            let item = tbody.querySelector("#" + id);
+            let item = tbody.querySelector("#row-" + id);
+            let status = item.querySelectorAll("td")[3].innerHTML;
+            statistics[status]--;
             tbody.removeChild(item);
+            updateStoryData(statistics);
         };
         options.fail = function(error) {
             alert(error);
@@ -111,7 +115,7 @@
 
     function createProjectList(data) {
         return data.reduce((html, item) => {
-            return html += '<tr id=' + item.id + '>' +
+            return html += '<tr id=row-' + item.id + '>' +
                 '<td>' + item.name + '</td>' +
                 '<td><p class="description">' + item.description + '</p></td>' +
                 '<td>' + item.endTime + '</td>' +
